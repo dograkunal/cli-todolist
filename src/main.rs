@@ -5,8 +5,7 @@ use std::io::Write;
 use tasks::{add_task, mark_task_as_completed, remove_task, view_tasks, load_tasks};
 
 fn main() {
-
-    //load tasks from file
+    // load tasks from file
     let mut tasks = load_tasks();
 
     loop {
@@ -22,15 +21,15 @@ fn main() {
         println!("--------------------------------");
 
         print!("Choose an option: ");
-        //force print without newline
-        //flush is a method that flushes the buffer to the console
-        //unwrap is a method that returns the value of the buffer
+        // force print without newline
+        // flush is a method that flushes the buffer to the console
+        // unwrap is a method that returns the value of the buffer
         io::stdout().flush().unwrap();
 
-        //get user input
+        // get user input
         let mut choice = String::new();
-        //stdIn is a module that provides the stdin function
-        //read_line is a method that reads a line from the console and stores it in a string
+        // stdIn is a module that provides the stdin function
+        // read_line is a method that reads a line from the console and stores it in a string
         io::stdin()
             .read_line(&mut choice)
             .expect("Failed to read line");
@@ -41,8 +40,8 @@ fn main() {
             Ok(3) => mark_task_as_completed(&mut tasks),
             Ok(4) => remove_task(&mut tasks),
             Ok(5) => break,
-            //if the user enters an invalid option, print an error message
-            //_ is a wildcard that matches any value
+            // if the user enters an invalid option, print an error message
+            // _ is a wildcard that matches any value
             _ => println!("Invalid option"),
         }
     }
