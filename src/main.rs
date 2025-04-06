@@ -2,13 +2,12 @@ mod tasks;
 
 use std::io;
 use std::io::Write;
-use tasks::{add_task, mark_task_as_completed, remove_task, view_tasks, Task};
+use tasks::{add_task, mark_task_as_completed, remove_task, view_tasks, load_tasks};
 
 fn main() {
-    //create a vector of tasks
-    //Vector is a collection of items in a specific order
-    //Vec is short for vector
-    let mut tasks: Vec<Task> = Vec::new();
+
+    //load tasks from file
+    let mut tasks = load_tasks();
 
     loop {
         println!("\n");
